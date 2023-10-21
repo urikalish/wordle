@@ -1,0 +1,48 @@
+{
+  "name": "kalish-wordle-client",
+  "description": "Wordle clone client",
+  "license": "MIT",
+  "author": "Uri Kalish",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:urikalish/wordle.git"
+  },
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint --fix src/**/*.ts",
+    "clean": "rimraf tsc && rimraf dist",
+    "compile": "tsc",
+    "bundle-dev": "rollup -c --environment build:development",
+    "bundle-prod": "rollup -c --environment build:production",
+    "bundle": "yarn bundle-dev && yarn bundle-prod",
+    "build": "yarn clean && yarn compile && yarn bundle",
+    "full": "yarn format && yarn lint && yarn build",
+    "serve": "http-server ./public --port 5543 --cors -c-1",
+    "post-checkout": "yarn && yarn build",
+    "post-merge": "yarn && yarn build",
+    "pre-commit": "yarn full"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@open-wc/building-rollup": "^2.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@types/gtag.js": "^0.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "concurrently": "^7.2.2",
+    "deepmerge": "^4.2.2",
+    "eslint": "^8.51.0",
+    "http-server": "^14.1.1",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.72.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "terser": "^5.14.2",
+    "semver": "^7.5.4"
+  }
+}

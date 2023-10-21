@@ -1,0 +1,21 @@
+{
+  "name": "kalish-wordle",
+  "version": "1.0.0",
+  "description": "Wordle clone",
+  "scripts": {
+    "prepare": "husky install",
+    "post-checkout": "cd client && yarn post-checkout",
+    "post-merge": "cd client && yarn post-merge",
+    "pre-commit": "cd client && yarn pre-commit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:urikalish/wordle.git"
+  },
+  "author": "Uri Kalish",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^7.0.4"
+  },
+  "dependencies": {}
+}
