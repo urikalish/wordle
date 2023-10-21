@@ -46,6 +46,7 @@ main {
 	height: var(--main-content-height);
 	display: grid;
 	place-items: center;
+	background-color: #6ff;
 }
 .main-content {
 	height: var(--main-content-height);
@@ -58,6 +59,27 @@ main {
 .main-playing-area {
 	height: var(--main-playing-area-height);
 }
+.main-grid-container {
+	width: 25vw;
+	height: 30vw;
+}
+.main-grid {
+	height: 100%;
+	display: grid;
+	gap: 0.5vw;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	user-select: none;
+}
+.main-grid-item {
+	display: grid;
+	place-items: center;
+	border: 0.2vw solid #999;
+	color: #333;
+	font-size: 3vw;
+	font-weight: 700;
+}
+
 @media (max-width: 900px) {
 	:root {
 		--main-content-height: var(--doc-height);
