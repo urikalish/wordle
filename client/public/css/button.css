@@ -13,6 +13,7 @@ button:active {
 	opacity: 0.8;
 }
 button.disabled {
-	background-color: var(--color--gray--dark) !important;
+	background-color: var(--color--gray--medium) !important;
+	color: var(--color--gray--light) !important;
 	pointer-events: none;
 }
