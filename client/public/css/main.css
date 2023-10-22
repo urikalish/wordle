@@ -94,8 +94,7 @@ main {
 .keyboard-button[id="key-<"] {
 	background-color: var(--color--red--light);
 }
-.keyboard-button:hover,
-.keyboard-button:focus-visible {
+.keyboard-button:hover {
 	opacity: 0.8;
 }
 
