@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
 .hidden {
 	visibility: hidden !important;
 }
@@ -13,18 +7,8 @@
 .transparent {
 	opacity: 0;
 }
-
 .ellipsis {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-}
-
-@keyframes fade-in-animation {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }

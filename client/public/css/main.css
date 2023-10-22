@@ -1,11 +1,11 @@
-@import './vars.css';
-@import './typography.css';
-@import './general.css';
-@import './header.css';
-@import './footer.css';
-
 :root {
+	--doc-height: 100%;
 	font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 html,
 body {
@@ -56,9 +56,6 @@ main {
 	grid-column-gap: 3rem;
 	animation: fade-in-animation 1s;
 }
-.main-playing-area {
-	height: var(--main-playing-area-height);
-}
 .main-grid-container {
 	width: 25vw;
 	height: 30vw;
@@ -83,8 +80,6 @@ main {
 @media (max-width: 900px) {
 	:root {
 		--main-content-height: var(--doc-height);
-		--main-playing-area-height: calc(var(--board-frame-size) + 2 * var(--player-status-height));
-		--info-panel-height: calc(var(--main-content-height) - var(--main-playing-area-height));
 	}
 	.page-bg-img {
 		display: none;
@@ -95,6 +90,5 @@ main {
 	.main-content {
 		height: var(--doc-height);
 		grid-template-columns: 1fr;
-		grid-template-rows: var(--main-playing-area-height) var(--info-panel-height);
 	}
 }

@@ -22,3 +22,9 @@
 	font-weight: 400;
 	src: local('Aguafina Script'), url('../font/aguafina-script-v9-latin-ext_latin-regular.woff2') format('woff2');
 }
+
+:root {
+	--font-family--defalt: Play, 'Helvetica Neue', Arial, sans-serif;
+	--font-family--script: 'Aguafina Script', serif;
+	--font-family--code: 'Share Tech Mono', Consolas, 'Courier New', monospace;
+}
