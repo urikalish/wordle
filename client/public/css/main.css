@@ -1,8 +1,10 @@
 :root {
 	--main-width: 100vw;
 	--main-height: 100vh;
-	--main-grid-header-height: calc(var(--main-height) / 12);
-	--main-grid-cell-size: calc(var(--main-height) / 12);
+	--grid-header-height: calc(var(--main-height) / 12);
+	--grid-cell-size: calc(var(--main-height) / 12);
+	--keyboard-button-width: calc(var(--main-height) / 20);
+	--keyboard-button-height: calc(var(--main-height) / 20);
 	font-size: 62.5%;
 }
 *,
@@ -35,33 +37,56 @@ main {
 	grid-template-rows: auto auto 1fr;
 	user-select: none;
 }
-.main-header {
+.header {
 	display: flex;
 	place-content: center;
-	height: var(--main-grid-header-height);
+	height: var(--grid-header-height);
 }
-.main-header-text {
+.header-text {
 	position: relative;
 	font-family: var(--font-family--script);
-	font-size: calc(var(--main-grid-header-height) / 1.5);
-	top: calc(var(--main-grid-header-height) / 8);
-	left: calc(var(--main-grid-header-height) / 8);
+	font-size: calc(var(--grid-header-height) / 1.5);
+	top: calc(var(--grid-header-height) / 8);
 }
-.main-grid {
+.grid {
 	display: grid;
 	grid-template-columns: repeat(5, auto);
 	grid-template-rows: repeat(6, auto);
 	place-content: center;
 }
-.main-grid-item {
-	height: var(--main-grid-cell-size);
-	width: var(--main-grid-cell-size);
+.grid-item {
+	width: var(--grid-cell-size);
+	height: var(--grid-cell-size);
 	display: grid;
 	place-items: center;
 	outline: 1px solid var(--color--gray--light);
 	outline-offset: -4px;
-	font-size: calc(var(--main-grid-cell-size) / 1.5);
+	font-size: calc(var(--grid-cell-size) / 1.5);
 	font-weight: 700;
 	background-color: transparent;
 	color: var(--color--gray--light);
 }
+.keyboard {
+	margin-top: calc(var(--keyboard-button-height) / 2);
+	display: grid;
+	justify-items: center;
+	align-content: start;
+}
+.keyboard-row {
+	display: flex;
+}
+.keyboard-button {
+	width: var(--keyboard-button-width);
+	height: var(--keyboard-button-height);
+	display: grid;
+	place-items: center;
+	background-color: var(--color--gray--light);
+	font-size: calc(var(--keyboard-button-width) / 2);
+	font-weight: 700;
+	cursor: pointer;
+}
+.keyboard-button:hover,
+.keyboard-button:focus-visible {
+	background-color: var(--color--gray--medium);
+}
+
