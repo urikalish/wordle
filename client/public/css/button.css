@@ -10,6 +10,9 @@ button:focus-visible {
 	font-weight: 700;
 	cursor: pointer;
 }
+button:active {
+	opacity: 0.8;
+}
 button.disabled {
 	background-color: var(--color--gray--dark) !important;
 	pointer-events: none;
