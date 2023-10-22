@@ -41,7 +41,7 @@ export class Game {
 	handleSubmitButtonClick() {
 		this.setPhase(Phase.MARK_GUESS);
 		const colors = this.wordsHelper.getColors(this.word, this.guess);
-		this.uiHelper.updateGridRowColors(this.rowIndex, colors);
+		this.uiHelper.updateColors(this.rowIndex, this.guess, colors);
 		this.guess = '';
 		this.rowIndex++;
 		this.colIndex = 0;

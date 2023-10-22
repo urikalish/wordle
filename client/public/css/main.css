@@ -75,20 +75,6 @@ main {
 	font-weight: 700;
 	color: var(--color--gray--darkest);
 }
-.grid-item.gray,
-.grid-item.yellow,
-.grid-item.green {
-	color: var(--color--gray--lightest);
-}
-.grid-item.gray {
-	background-color: var(--color--gray--darker);
-}
-.grid-item.yellow {
-	background-color: var(--color--yellow);
-}
-.grid-item.green {
-	background-color: var(--color--green);
-}
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);
 	display: grid;
@@ -103,6 +89,27 @@ main {
 	height: var(--keyboard-button-height);
 	margin: calc(var(--keyboard-button-width) / 20);
 	background-color: var(--color--gray--lightest);
+}
+.grid-item.gray,
+.grid-item.yellow,
+.grid-item.green,
+.keyboard-button.gray,
+.keyboard-button.yellow,
+.keyboard-button.green {
+	border: none;
+	color: var(--color--gray--lightest);
+}
+.grid-item.gray,
+.keyboard-button.gray {
+	background-color: var(--color--gray--darker);
+}
+.grid-item.yellow,
+.keyboard-button.yellow {
+	background-color: var(--color--yellow);
+}
+.grid-item.green,
+.keyboard-button.green {
+	background-color: var(--color--green);
 }
 .controls {
 	display: flex;

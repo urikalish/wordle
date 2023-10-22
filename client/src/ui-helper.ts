@@ -57,11 +57,25 @@ export class UiHelper {
 		}
 	}
 
-	updateGridRowColors(row, colors) {
-		for (let col = 0; col < colors.length; col++) {
-			const cellElm = document.getElementById(`cell-${row}${col}`);
+	updateColors(row, guess, colors) {
+		for (let i = 0; i < colors.length; i++) {
+			const cellElm = document.getElementById(`cell-${row}${i}`);
 			if (cellElm) {
-				cellElm.classList.add(colors[col]);
+				cellElm.classList.add(colors[i]);
+			}
+			const keyElm = document.getElementById(`key-${guess[i]}`);
+			if (!keyElm) {
+				continue;
+			}
+			if (colors[i] === 'gray') {
+				keyElm.classList.toggle('gray', true);
+			} else if (colors[i] === 'yellow' ) {
+				if (!keyElm.classList.contains('green')) {
+					keyElm.classList.toggle('yellow', true);
+				}
+			} else if (colors[i] === 'green') {
+				keyElm.classList.toggle('yellow', false);
+				keyElm.classList.toggle('green', true);
 			}
 		}
 	}
