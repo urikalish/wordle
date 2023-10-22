@@ -1,5 +1,4 @@
 button,
-button:focus,
 button:focus-visible {
 	border: none;
 	border-radius: 10%;

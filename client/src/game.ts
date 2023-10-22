@@ -4,6 +4,7 @@ import { UiHelper } from './ui-helper';
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
 	private word = '';
+	// private guesses = [];
 
 	init() {
 		this.wordsHelper.init();
