@@ -2,7 +2,7 @@
 	--main-width: 100vw;
 	--main-height: 100vh;
 	--grid-header-height: calc(var(--main-height) / 12);
-	--grid-cell-size: calc(var(--main-height) / 12);
+	--grid-cell-size: calc(var(--main-height) / 16);
 	--keyboard-button-width: calc(var(--main-height) / 20);
 	--keyboard-button-height: calc(var(--keyboard-button-width) * 1.5);
 	--button-font-size: calc(var(--keyboard-button-width) / 2);
@@ -88,9 +88,9 @@ main {
 .controls {
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: start;
 }
 .submit-button {
-	margin-bottom: 2rem;
+	margin-top: calc(var(--keyboard-button-height) / 2);
 	padding: 1rem 2rem;
 }
