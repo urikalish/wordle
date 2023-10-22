@@ -20,13 +20,17 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
-	display: grid;
-	place-items: center;
-	position: relative;
+	height: 100%;
 	color: var(--color--gray--darkest);
 	font-family: var(--font-family--default);
 	font-size: 1.6rem;
+	animation: fade-in-animation 1s;
+}
+.wrapper {
+	height: 100%;
+	overflow: hidden;
+	display: grid;
+	place-items: center;
 	background-color: hsl(360, 100%, 80%);
 	animation: hue-rotate-animation 180s infinite;
 }
