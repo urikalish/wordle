@@ -5,7 +5,7 @@ function setWidthAndHeight() {
 	document.documentElement.style.setProperty('--main-height', `${h}px`);
 	const w = Math.min(window.innerWidth, h / 2);
 	document.documentElement.style.setProperty('--main-width', `${w}px`);
-	document.documentElement.style.setProperty('--keyboard-button-width', `${w / 10}px`);
+	document.documentElement.style.setProperty('--keyboard-button-width', `${w / 11}px`);
 }
 
 function createUI() {
@@ -15,7 +15,7 @@ function createUI() {
 			const cellElm = document.createElement('div');
 			cellElm.setAttribute('id', `cell-${r}${c}`);
 			cellElm.classList.add('grid-item');
-			cellElm.textContent = 'X';
+			cellElm.textContent = '-';
 			mainGridElm?.appendChild(cellElm);
 		}
 	}
