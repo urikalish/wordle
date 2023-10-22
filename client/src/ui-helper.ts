@@ -1,3 +1,5 @@
+import { config } from './config';
+
 export class UiHelper {
 	private onKeyboardButtonClick;
 	private onSubmitButtonClick;
@@ -12,8 +14,8 @@ export class UiHelper {
 
 	createUI() {
 		const mainGridElm = document.getElementById('grid');
-		for (let r = 0; r < 6; r++) {
-			for (let c = 0; c < 5; c++) {
+		for (let r = 0; r < config.NUMBER_OF_GUESSES; r++) {
+			for (let c = 0; c < config.WORD_LENGTH; c++) {
 				const cellElm = document.createElement('div');
 				cellElm.setAttribute('id', `cell-${r}${c}`);
 				cellElm.setAttribute('data-row', r.toString());
@@ -60,7 +62,7 @@ export class UiHelper {
 	updateColors(row, guess, colors) {
 		for (let i = 0; i < colors.length; i++) {
 			const cellElm = document.getElementById(`cell-${row}${i}`);
-			if (cellElm) {
+			if (cellElm && colors[i]) {
 				cellElm.classList.add(colors[i]);
 			}
 			const keyElm = document.getElementById(`key-${guess[i]}`);
@@ -69,7 +71,7 @@ export class UiHelper {
 			}
 			if (colors[i] === 'gray') {
 				keyElm.classList.toggle('gray', true);
-			} else if (colors[i] === 'yellow' ) {
+			} else if (colors[i] === 'yellow') {
 				if (!keyElm.classList.contains('green')) {
 					keyElm.classList.toggle('yellow', true);
 				}

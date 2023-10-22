@@ -90,6 +90,12 @@ main {
 	margin: calc(var(--keyboard-button-width) / 20);
 	background-color: var(--color--gray--lightest);
 }
+body[data-phase="success"] .keyboard-button,
+body[data-phase="failure"] .keyboard-button {
+	background-color: var(--color--gray--medium);
+	color: var(--color--gray--light);
+	pointer-events: none;
+}
 .grid-item.gray,
 .grid-item.yellow,
 .grid-item.green,
