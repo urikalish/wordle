@@ -4,7 +4,7 @@
 	--grid-header-height: calc(var(--main-height) / 12);
 	--grid-cell-size: calc(var(--main-height) / 12);
 	--keyboard-button-width: calc(var(--main-height) / 20);
-	--keyboard-button-height: calc(var(--keyboard-button-width) * 1);
+	--keyboard-button-height: calc(var(--keyboard-button-width) * 1.5);
 	font-size: 62.5%;
 }
 *,
@@ -83,7 +83,7 @@ main {
 	place-items: center;
 	border: none;
 	margin: calc(var(--keyboard-button-width) / 20);
-	border-radius: 20%;
+	border-radius: 10%;
 	background-color: var(--color--gray--light);
 	color: var(--color--gray--dark);
 	font-family: var(--font-family--default);
