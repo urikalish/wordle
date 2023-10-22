@@ -79,7 +79,7 @@ main {
 	width: var(--keyboard-button-width);
 	height: var(--keyboard-button-height);
 	margin: calc(var(--keyboard-button-width) / 20);
-	background-color: var(--color--gray--lighter);
+	background-color: var(--color--gray--lightest);
 }
 .keyboard-button[id="key-<"] {
 	background-color: var(--color--red--light);
