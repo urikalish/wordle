@@ -1,10 +1,11 @@
 import { words } from './words';
 
 function setWidthAndHeight() {
-	document.documentElement.style.setProperty('--main-height', `${window.innerHeight}px`);
-	const mainWidth = Math.min(window.innerHeight, (window.innerHeight / 12) * 6);
-	document.documentElement.style.setProperty('--main-width', `${mainWidth}px`);
-	document.documentElement.style.setProperty('--keyboard-button-width', `${mainWidth / 10}px`);
+	const h = window.innerHeight;
+	document.documentElement.style.setProperty('--main-height', `${h}px`);
+	const w = Math.min(window.innerWidth, h, (h / 12) * 6);
+	document.documentElement.style.setProperty('--main-width', `${w}px`);
+	document.documentElement.style.setProperty('--keyboard-button-width', `${w / 11}px`);
 }
 
 function createUI() {

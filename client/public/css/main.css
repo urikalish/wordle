@@ -31,6 +31,7 @@ body {
 }
 main {
 	width: var(--main-width, 100vw);
+	min-width: var(--main-width, 100vw);
 	height: var(--main-height, 100vh);
 	display: grid;
 	grid-template-columns: auto;
@@ -67,7 +68,7 @@ main {
 	color: var(--color--gray--light);
 }
 .keyboard {
-	margin-top: calc(var(--keyboard-button-height) / 2);
+	margin-top: calc(var(--keyboard-button-height) / 4);
 	display: grid;
 	justify-items: center;
 	align-content: start;
