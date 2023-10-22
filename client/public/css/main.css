@@ -31,8 +31,8 @@ body {
 	overflow: hidden;
 	display: grid;
 	place-items: center;
-	background-color: hsl(360, 100%, 80%);
-	animation: hue-rotate-animation 180s infinite;
+	background-color: hsl(0, 100%, 80%);
+	animation: hue-rotate-animation 120s infinite;
 }
 main {
 	width: var(--main-width, 100vw);
@@ -68,7 +68,7 @@ main {
 	border-radius: 10%;
 	font-size: calc(var(--grid-cell-size) / 1.5);
 	font-weight: 700;
-	color: var(--color--gray--lightest);
+	color: var(--color--gray--darkest);
 }
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);

@@ -1,10 +1,11 @@
 import { allWords } from './all-words';
+import { config } from './config';
 
 export class WordsHelper {
 	private words: string[] = [];
 
 	init() {
-		this.words = allWords.filter(w => w.length === 5);
+		this.words = allWords.filter(w => w.length === config.WORD_LENGTH);
 		this.words.forEach((w, ind) => {
 			console.log(ind + ' ' + w);
 		});

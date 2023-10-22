@@ -1,5 +1,8 @@
 export class UiHelper {
-	static setWidthAndHeight() {
+	private onKeyboardButtonClick;
+	private onSubmitButtonClick;
+
+	setWidthAndHeight() {
 		const h = window.innerHeight;
 		document.documentElement.style.setProperty('--main-height', `${h}px`);
 		const w = Math.min(window.innerWidth, h / 2);
@@ -7,14 +10,14 @@ export class UiHelper {
 		document.documentElement.style.setProperty('--keyboard-button-width', `${w / 11}px`);
 	}
 
-	static createUI() {
+	createUI() {
 		const mainGridElm = document.getElementById('grid');
 		for (let r = 0; r < 6; r++) {
 			for (let c = 0; c < 5; c++) {
 				const cellElm = document.createElement('div');
 				cellElm.setAttribute('id', `cell-${r}${c}`);
 				cellElm.setAttribute('data-row', r.toString());
-				cellElm.setAttribute('data-column', c.toString());
+				cellElm.setAttribute('data-col', c.toString());
 				cellElm.classList.add('grid-item');
 				mainGridElm?.appendChild(cellElm);
 			}
@@ -34,15 +37,27 @@ export class UiHelper {
 				keyElm.setAttribute('data-key', keys[r][k]);
 				keyElm.classList.add('keyboard-button');
 				keyElm.textContent = keys[r][k];
+				keyElm.addEventListener('click', this.onKeyboardButtonClick);
 				rowElm.appendChild(keyElm);
 			}
 			keyboardElm?.appendChild(rowElm);
 		}
+		const submitButtonElm = document.getElementById('submit-button');
+		submitButtonElm?.addEventListener('click', this.onSubmitButtonClick);
 	}
 
-	static init() {
-		window.addEventListener('resize', UiHelper.setWidthAndHeight);
-		UiHelper.setWidthAndHeight();
-		UiHelper.createUI();
+	updateCellText(row, col, text) {
+		const cellElm = document.getElementById(`cell-${row}${col}`);
+		if (cellElm) {
+			cellElm.textContent = text;
+		}
+	}
+
+	init(onKeyboardButtonClick, onSubmitButtonClick) {
+		window.addEventListener('resize', this.setWidthAndHeight);
+		this.setWidthAndHeight();
+		this.onKeyboardButtonClick = onKeyboardButtonClick;
+		this.onSubmitButtonClick = onSubmitButtonClick;
+		this.createUI();
 	}
 }

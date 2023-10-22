@@ -1,0 +1,7 @@
+export enum Phase {
+	GAME_INIT = 'GAME_INIT',
+	USER_GUESS = 'USER_GUESS',
+	MARK_GUESS = 'MARK_GUESS',
+	SUCCESS = 'SUCCESS',
+	FAILURE = 'FAILURE',
+}
