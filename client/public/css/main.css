@@ -1,7 +1,7 @@
 :root {
 	--main-width: 100vw;
 	--main-height: 100vh;
-	--grid-header-height: calc(var(--main-height) / 12);
+	--grid-header-height: calc(var(--main-height) / 9);
 	--grid-cell-size: calc(var(--main-height) / 16);
 	--keyboard-button-width: calc(var(--main-height) / 20);
 	--keyboard-button-height: calc(var(--keyboard-button-width) * 1.5);
@@ -44,10 +44,9 @@ main {
 	height: var(--grid-header-height);
 }
 .header-text {
-	position: relative;
+	margin: calc(var(--grid-header-height) / 10) 0 calc(var(--grid-header-height) / 5) 0;
 	font-family: var(--font-family--script);
-	font-size: calc(var(--grid-header-height) / 1.5);
-	top: calc(var(--grid-header-height) / 8);
+	font-size: calc(var(--grid-cell-size) * 1.3);
 }
 .grid {
 	display: grid;
