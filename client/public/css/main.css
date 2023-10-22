@@ -4,7 +4,7 @@
 	--grid-header-height: calc(var(--main-height) / 12);
 	--grid-cell-size: calc(var(--main-height) / 12);
 	--keyboard-button-width: calc(var(--main-height) / 20);
-	--keyboard-button-height: calc(var(--main-height) / 20);
+	--keyboard-button-height: var(--keyboard-button-width);
 	font-size: 62.5%;
 }
 *,
@@ -81,6 +81,8 @@ main {
 	display: grid;
 	place-items: center;
 	background-color: var(--color--gray--light);
+	color: var(--color--gray--dark);
+	font-family: var(--font-family--default);
 	font-size: calc(var(--keyboard-button-width) / 2);
 	font-weight: 700;
 	cursor: pointer;

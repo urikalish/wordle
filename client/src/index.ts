@@ -1,8 +1,10 @@
 import { words } from './words';
 
 function setWidthAndHeight() {
-	document.documentElement.style.setProperty('--main-width', `${Math.min(window.innerWidth, 1440)}px`);
 	document.documentElement.style.setProperty('--main-height', `${window.innerHeight}px`);
+	const mainWidth = window.innerHeight / 12 * 5;
+	document.documentElement.style.setProperty('--main-width', `${mainWidth}px`);
+	document.documentElement.style.setProperty('--keyboard-button-width', `${mainWidth / 10}px`);
 }
 
 function createUI() {
@@ -19,7 +21,7 @@ function createUI() {
 	const keys = [
 		['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-		['Z', 'X', 'C', 'V', 'B', 'N', 'M', '<<']
+		['Z', 'X', 'C', 'V', 'B', 'N', 'M', '<<'],
 	];
 	const keyboardElm = document.getElementById('keyboard');
 	for (let r = 0; r < 3; r++) {
@@ -32,7 +34,7 @@ function createUI() {
 			keyElm.textContent = keys[r][k];
 			rowElm.appendChild(keyElm);
 		}
-		keyboardElm?.appendChild(rowElm)
+		keyboardElm?.appendChild(rowElm);
 	}
 }
 
