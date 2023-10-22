@@ -11,11 +11,11 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --fix src/**/*.ts",
-    "clean": "rimraf tsc && rimraf dist",
+    "clean": "rimraf tsc && rimraf public/js",
     "compile": "tsc",
     "bundle-dev": "rollup -c --environment build:development",
     "bundle-prod": "rollup -c --environment build:production",
-    "bundle": "yarn bundle-dev && yarn bundle-prod",
+    "bundle": "yarn bundle-prod && yarn bundle-dev",
     "build": "yarn clean && yarn compile && yarn bundle",
     "full": "yarn format && yarn lint && yarn build",
     "serve": "http-server ./public --port 5543 --cors -c-1",
