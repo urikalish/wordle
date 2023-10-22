@@ -13,6 +13,8 @@ export class UiHelper {
 			for (let c = 0; c < 5; c++) {
 				const cellElm = document.createElement('div');
 				cellElm.setAttribute('id', `cell-${r}${c}`);
+				cellElm.setAttribute('data-row', r.toString());
+				cellElm.setAttribute('data-column', c.toString());
 				cellElm.classList.add('grid-item');
 				mainGridElm?.appendChild(cellElm);
 			}
@@ -29,6 +31,7 @@ export class UiHelper {
 			for (let k = 0; k < keys[r].length; k++) {
 				const keyElm = document.createElement('button');
 				keyElm.setAttribute('id', `key-${keys[r][k]}`);
+				keyElm.setAttribute('data-key', keys[r][k]);
 				keyElm.classList.add('keyboard-button');
 				keyElm.textContent = keys[r][k];
 				rowElm.appendChild(keyElm);
