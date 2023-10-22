@@ -26,13 +26,18 @@ body {
 	font-size: 1.6rem;
 	animation: fade-in-animation 1s;
 }
+.background {
+	position: absolute;
+	inset: 0;
+	background-color: hsl(0, 100%, 80%);
+	animation: hue-rotate-animation 120s infinite;
+}
 .wrapper {
-	height: 100%;
+	position: absolute;
+	inset: 0;
 	overflow: hidden;
 	display: grid;
 	place-items: center;
-	background-color: hsl(0, 100%, 80%);
-	animation: hue-rotate-animation 120s infinite;
 }
 main {
 	width: var(--main-width, 100vw);
@@ -93,4 +98,12 @@ main {
 .submit-button {
 	margin-top: calc(var(--keyboard-button-height) / 2);
 	padding: 1rem 2rem;
+	background-color: var(--color--gray--medium);
+	color: var(--color--gray--light);
+	pointer-events: none;
+}
+body[data-phase="wait-submit"] .submit-button {
+	background-color: var(--color--gray--lightest);
+	color: var(--color--gray--darkest);
+	pointer-events: auto;
 }

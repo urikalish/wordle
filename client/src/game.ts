@@ -1,7 +1,7 @@
-import { config } from './config';
-import { Phase } from './phase';
-import { WordsHelper } from './words-helper';
-import { UiHelper } from './ui-helper';
+import {config} from './config';
+import {Phase} from './phase';
+import {WordsHelper} from './words-helper';
+import {UiHelper} from './ui-helper';
 
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
@@ -12,6 +12,11 @@ export class Game {
 	private rowIndex = 0;
 	private colIndex = 0;
 
+	setPhase(phase: Phase) {
+		this.phase = phase;
+		this.uiHelper.markGamePhase(phase);
+	}
+
 	handleKeyboardButtonClick(event) {
 		const key = event.target.getAttribute('data-key');
 		if (key === '<') {
@@ -20,11 +25,16 @@ export class Game {
 				this.guess = this.guess.substring(0, this.guess.length - 1);
 				this.colIndex--;
 			}
+			this.setPhase(Phase.USER_GUESS);
 		} else if (this.guess.length < config.WORD_LENGTH) {
 			this.uiHelper.updateCellText(this.rowIndex, this.colIndex, key);
 			this.guess += key;
 			this.colIndex++;
-			//alert(this.guesses[this.guessIndex]);
+			if (this.colIndex < config.WORD_LENGTH) {
+				this.setPhase(Phase.USER_GUESS);
+			} else {
+				this.setPhase(this.wordsHelper.doesWordExist(this.guess) ? Phase.WAIT_SUBMIT : Phase.USER_GUESS);
+			}
 		}
 	}
 
@@ -33,16 +43,17 @@ export class Game {
 	}
 
 	init() {
-		this.phase = Phase.GAME_INIT;
+		this.setPhase(Phase.GAME_INIT);
 		this.guess = '';
 		this.rowIndex = 0;
 		this.colIndex = 0;
 		this.wordsHelper.init();
 		this.word = this.wordsHelper.getRandomWord();
 		this.uiHelper.init(this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this));
+		this.uiHelper.markGamePhase(this.phase);
 	}
 
 	start() {
-		this.phase = Phase.USER_GUESS;
+		this.setPhase(Phase.USER_GUESS);
 	}
 }

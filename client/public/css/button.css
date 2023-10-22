@@ -1,12 +1,12 @@
 button,
 button:focus-visible {
 	border: none;
-	border-radius: 10%;
-	background-color: var(--color--gray--lighter);
-	color: var(--color--gray--darkest);
+	border-radius: 8px;
 	font-size: var(--button-font-size);
 	font-family: var(--font-family--default);
 	font-weight: 700;
+	background-color: var(--color--gray--lighter);
+	color: var(--color--gray--darkest);
 	cursor: pointer;
 }
 button:active {

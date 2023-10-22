@@ -53,6 +53,10 @@ export class UiHelper {
 		}
 	}
 
+	markGamePhase(phase) {
+		document.body.setAttribute('data-phase', phase);
+	}
+
 	init(onKeyboardButtonClick, onSubmitButtonClick) {
 		window.addEventListener('resize', this.setWidthAndHeight);
 		this.setWidthAndHeight();

@@ -16,6 +16,6 @@ export class WordsHelper {
 	}
 
 	doesWordExist(word: string): boolean {
-		return this.words.indexOf(word) !== -1;
+		return this.words.indexOf(word.toLowerCase()) !== -1;
 	}
 }
