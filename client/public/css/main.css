@@ -60,7 +60,7 @@ main {
 	display: grid;
 	place-items: center;
 	margin: calc(var(--grid-cell-size) / 20);
-	border: 1px solid var(--color--gray--medium);
+	border: 2px solid var(--color--gray--dark);
 	border-radius: 10%;
 	font-size: calc(var(--grid-cell-size) / 1.5);
 	font-weight: 700;
