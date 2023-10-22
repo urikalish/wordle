@@ -2,7 +2,7 @@
 	--main-width: 100vw;
 	--main-height: 100vh;
 	--grid-header-height: calc(var(--main-height) / 12);
-	--grid-cell-size: calc(var(--main-height) / 15);
+	--grid-cell-size: calc(var(--main-height) / 12);
 	--keyboard-button-width: calc(var(--main-height) / 20);
 	--keyboard-button-height: calc(var(--keyboard-button-width) * 1.5);
 	font-size: 62.5%;
