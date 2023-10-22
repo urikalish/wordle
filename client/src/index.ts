@@ -1,7 +1,8 @@
 import { words } from './words';
 
-function setDocHeight() {
-	document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`);
+function setWidthAndHeight() {
+	document.documentElement.style.setProperty('--main-width', `${Math.min(window.innerWidth, 1440)}px`);
+	document.documentElement.style.setProperty('--main-height', `${window.innerHeight}px`);
 }
 
 function createUI() {
@@ -18,8 +19,8 @@ function createUI() {
 }
 
 function init() {
-	window.addEventListener('resize', setDocHeight);
-	setDocHeight();
+	window.addEventListener('resize', setWidthAndHeight);
+	setWidthAndHeight();
 	createUI();
 	const fiveLetterWords = words.filter(w => w.length === 5);
 	//alert(fiveLetterWords.length);

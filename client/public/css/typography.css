@@ -24,7 +24,7 @@
 }
 
 :root {
-	--font-family--defalt: Play, 'Helvetica Neue', Arial, sans-serif;
+	--font-family--default: Play, 'Helvetica Neue', Arial, sans-serif;
 	--font-family--script: 'Aguafina Script', serif;
 	--font-family--code: 'Share Tech Mono', Consolas, 'Courier New', monospace;
 }

@@ -2,9 +2,10 @@
 	--color--orange: #970;
 	--color--green: #783;
 	--color--green--light: #bc3;
+	--color--red: #f33;
 	--color--red--light: #f66;
-	--color--red--medium: #f33;
 	--color--red--dark: #900;
-	--color--text: #999;
-	--color--background: #111;
+	--color--cyan: #6ff;
+	--color--gray--light: #ccc;
+	--color--gray--dark: #222;
 }
