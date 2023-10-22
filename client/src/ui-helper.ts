@@ -1,5 +1,4 @@
 export class UiHelper {
-
 	static setWidthAndHeight() {
 		const h = window.innerHeight;
 		document.documentElement.style.setProperty('--main-height', `${h}px`);
@@ -43,5 +42,5 @@ export class UiHelper {
 		window.addEventListener('resize', UiHelper.setWidthAndHeight);
 		UiHelper.setWidthAndHeight();
 		UiHelper.createUI();
-	};
+	}
 }
