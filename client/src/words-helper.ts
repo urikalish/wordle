@@ -6,8 +6,9 @@ export class WordsHelper {
 
 	init() {
 		this.words = allWords.filter(w => w.length === config.WORD_LENGTH);
+		this.words.length = config.USE_MOST_FREQUENT_WORDS;
 		this.words.forEach((w, ind) => {
-			console.log(ind + ' ' + w);
+			console.log(`${ind + 1} ${w}`);
 		});
 	}
 

@@ -1,7 +1,7 @@
-import {config} from './config';
-import {Phase} from './phase';
-import {WordsHelper} from './words-helper';
-import {UiHelper} from './ui-helper';
+import { config } from './config';
+import { Phase } from './phase';
+import { WordsHelper } from './words-helper';
+import { UiHelper } from './ui-helper';
 
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
@@ -48,9 +48,11 @@ export class Game {
 		this.rowIndex = 0;
 		this.colIndex = 0;
 		this.wordsHelper.init();
-		this.word = this.wordsHelper.getRandomWord();
+		this.word = this.wordsHelper.getRandomWord().toUpperCase();
 		this.uiHelper.init(this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this));
 		this.uiHelper.markGamePhase(this.phase);
+		console.log(this.word);
+		alert(this.word);
 	}
 
 	start() {
