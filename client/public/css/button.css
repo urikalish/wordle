@@ -1,4 +1,6 @@
-button {
+button,
+button:focus,
+button:focus-visible {
 	border: none;
 	border-radius: 10%;
 	background-color: var(--color--gray--lighter);
@@ -8,10 +10,10 @@ button {
 	font-weight: 700;
 	cursor: pointer;
 }
+button:hover {
+	opacity: 0.8;
+}
 button.disabled {
 	background-color: var(--color--gray--dark) !important;
 	pointer-events: none;
-}
-button:hover {
-	opacity: 0.8;
 }
