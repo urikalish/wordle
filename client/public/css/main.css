@@ -2,7 +2,7 @@
 	--main-width: 100vw;
 	--main-height: 100vh;
 	--grid-header-height: calc(var(--main-height) / 12);
-	--grid-cell-size: calc(var(--main-height) / 12);
+	--grid-cell-size: calc(var(--main-height) / 15);
 	--keyboard-button-width: calc(var(--main-height) / 20);
 	--keyboard-button-height: calc(var(--keyboard-button-width) * 1.5);
 	font-size: 62.5%;
@@ -31,7 +31,6 @@ body {
 }
 main {
 	width: var(--main-width, 100vw);
-	min-width: var(--main-width, 100vw);
 	height: var(--main-height, 100vh);
 	display: grid;
 	grid-template-columns: auto;

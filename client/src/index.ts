@@ -3,7 +3,7 @@ import { words } from './words';
 function setWidthAndHeight() {
 	const h = window.innerHeight;
 	document.documentElement.style.setProperty('--main-height', `${h}px`);
-	const w = Math.min(window.innerWidth, h / 2);
+	const w = Math.min(window.innerWidth, h / 2.5);
 	document.documentElement.style.setProperty('--main-width', `${w}px`);
 	document.documentElement.style.setProperty('--keyboard-button-width', `${w / 11}px`);
 }
