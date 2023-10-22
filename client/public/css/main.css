@@ -75,6 +75,20 @@ main {
 	font-weight: 700;
 	color: var(--color--gray--darkest);
 }
+.grid-item.gray,
+.grid-item.yellow,
+.grid-item.green {
+	color: var(--color--gray--lightest);
+}
+.grid-item.gray {
+	background-color: var(--color--gray--darker);
+}
+.grid-item.yellow {
+	background-color: var(--color--yellow);
+}
+.grid-item.green {
+	background-color: var(--color--green);
+}
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);
 	display: grid;

@@ -1,11 +1,4 @@
 :root {
-	--color--orange: #970;
-	--color--green: #783;
-	--color--green--light: #bc3;
-	--color--red: #f33;
-	--color--red--light: #f66;
-	--color--red--dark: #900;
-	--color--cyan: #6ff;
 	--color--gray--lightest: #eee;
 	--color--gray--lighter: #ccc;
 	--color--gray--light: #aaa;
@@ -13,4 +6,8 @@
 	--color--gray--dark: #666;
 	--color--gray--darker: #444;
 	--color--gray--darkest: #222;
+
+	--color--yellow: #d80;
+	--color--green: #480;
+	--color--red: #e44;
 }

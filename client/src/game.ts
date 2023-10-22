@@ -39,7 +39,13 @@ export class Game {
 	}
 
 	handleSubmitButtonClick() {
-		alert('submit');
+		this.setPhase(Phase.MARK_GUESS);
+		const colors = this.wordsHelper.getColors(this.word, this.guess);
+		this.uiHelper.updateGridRowColors(this.rowIndex, colors);
+		this.guess = '';
+		this.rowIndex++;
+		this.colIndex = 0;
+		this.setPhase(Phase.USER_GUESS);
 	}
 
 	init() {

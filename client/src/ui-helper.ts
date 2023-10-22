@@ -46,6 +46,10 @@ export class UiHelper {
 		submitButtonElm?.addEventListener('click', this.onSubmitButtonClick);
 	}
 
+	markGamePhase(phase) {
+		document.body.setAttribute('data-phase', phase);
+	}
+
 	updateCellText(row, col, text) {
 		const cellElm = document.getElementById(`cell-${row}${col}`);
 		if (cellElm) {
@@ -53,8 +57,13 @@ export class UiHelper {
 		}
 	}
 
-	markGamePhase(phase) {
-		document.body.setAttribute('data-phase', phase);
+	updateGridRowColors(row, colors) {
+		for (let col = 0; col < colors.length; col++) {
+			const cellElm = document.getElementById(`cell-${row}${col}`);
+			if (cellElm) {
+				cellElm.classList.add(colors[col]);
+			}
+		}
 	}
 
 	init(onKeyboardButtonClick, onSubmitButtonClick) {
