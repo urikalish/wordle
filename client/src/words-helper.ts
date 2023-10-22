@@ -42,6 +42,13 @@ export class WordsHelper {
 				colors[i] = 'green';
 			}
 		}
+
+for (let i = 0; i < colors.length; i++) {
+			if (!colors[i]) {
+				colors[i] = 'gray';
+			}
+		}
+
 		return colors;
 	}
 }
