@@ -23,8 +23,8 @@ body {
 	display: grid;
 	place-items: center;
 	position: relative;
-	background-color: var(--color--gray--dark);
-	color: var(--color--gray--light);
+	background-color: var(--color--gray--darkest);
+	color: var(--color--gray--lightest);
 	font-family: var(--font-family--default);
 	font-size: 1.6rem;
 	animation: fade-in-animation 1s;
@@ -65,7 +65,7 @@ main {
 	border-radius: 10%;
 	font-size: calc(var(--grid-cell-size) / 1.5);
 	font-weight: 700;
-	color: var(--color--gray--light);
+	color: var(--color--gray--lightest);
 }
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);
@@ -84,8 +84,8 @@ main {
 	border: none;
 	margin: calc(var(--keyboard-button-width) / 20);
 	border-radius: 10%;
-	background-color: var(--color--gray--light);
-	color: var(--color--gray--dark);
+	background-color: var(--color--gray--lighter);
+	color: var(--color--gray--darkest);
 	font-family: var(--font-family--default);
 	font-size: calc(var(--keyboard-button-width) / 2);
 	font-weight: 700;

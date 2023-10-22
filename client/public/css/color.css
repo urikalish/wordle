@@ -6,7 +6,11 @@
 	--color--red--light: #f66;
 	--color--red--dark: #900;
 	--color--cyan: #6ff;
-	--color--gray--light: #ccc;
-	--color--gray--medium: #666;
-	--color--gray--dark: #222;
+	--color--gray--lightest: #ddd;
+	--color--gray--lighter: #bbb;
+	--color--gray--light: #aaa;
+	--color--gray--medium: #888;
+	--color--gray--dark: #666;
+	--color--gray--darker: #444;
+	--color--gray--darkest: #222;
 }
