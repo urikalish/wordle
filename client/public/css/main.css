@@ -82,7 +82,7 @@ main {
 	display: grid;
 	place-items: center;
 	border: none;
-	margin: 2px;
+	margin: calc(var(--keyboard-button-width) / 20);
 	border-radius: 20%;
 	background-color: var(--color--gray--light);
 	color: var(--color--gray--dark);
