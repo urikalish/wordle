@@ -24,11 +24,11 @@ body {
 	display: grid;
 	place-items: center;
 	position: relative;
-	background-color: var(--color--gray--lightest);
 	color: var(--color--gray--darkest);
 	font-family: var(--font-family--default);
 	font-size: 1.6rem;
-	animation: fade-in-animation 1s;
+	background-color: hsl(360, 100%, 80%);
+	animation: hue-rotate-animation 180s infinite;
 }
 main {
 	width: var(--main-width, 100vw);
@@ -37,8 +37,6 @@ main {
 	grid-template-columns: auto;
 	grid-template-rows: auto auto auto 1fr;
 	user-select: none;
-	background-color: hsl(360, 100%, 80%);
-	animation: hue-rotate-animation 180s infinite;
 }
 .header {
 	display: flex;
