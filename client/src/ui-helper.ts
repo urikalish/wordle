@@ -14,7 +14,6 @@ export class UiHelper {
 				const cellElm = document.createElement('div');
 				cellElm.setAttribute('id', `cell-${r}${c}`);
 				cellElm.classList.add('grid-item');
-				cellElm.textContent = '';
 				mainGridElm?.appendChild(cellElm);
 			}
 		}
