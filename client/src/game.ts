@@ -57,6 +57,10 @@ export class Game {
 		}
 	}
 
+	handleReloadButtonClick() {
+		window.location.reload();
+	}
+
 	init() {
 		this.setPhase(Phase.GAME_INIT);
 		this.guess = '';
@@ -64,7 +68,7 @@ export class Game {
 		this.colIndex = 0;
 		this.wordsHelper.init();
 		this.word = this.wordsHelper.getRandomWord().toUpperCase();
-		this.uiHelper.init(this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this));
+		this.uiHelper.init(this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this), this.handleReloadButtonClick.bind(this));
 		this.uiHelper.markGamePhase(this.phase);
 		console.log(this.word);
 	}

@@ -81,6 +81,10 @@ main {
 	justify-items: center;
 	align-content: start;
 }
+body[data-phase="success"] .keyboard,
+body[data-phase="failure"] .keyboard {
+	display: none;
+}
 .keyboard-row {
 	display: flex;
 }
@@ -122,9 +126,12 @@ body[data-phase="failure"] .keyboard-button {
 	justify-content: center;
 	align-items: start;
 }
-.submit-button {
+.submit-button,
+.reload-button {
 	margin-top: calc(var(--keyboard-button-height) / 2);
 	padding: 1rem 2rem;
+}
+.submit-button {
 	background-color: var(--color--gray--medium);
 	color: var(--color--gray--light);
 	pointer-events: none;
@@ -133,4 +140,18 @@ body[data-phase="wait-submit"] .submit-button {
 	background-color: var(--color--gray--lightest);
 	color: var(--color--gray--darkest);
 	pointer-events: auto;
+}
+body[data-phase="failure"] .submit-button,
+body[data-phase="success"] .submit-button {
+	display: none;
+}
+.reload-button {
+	background-color: var(--color--gray--lightest);
+	color: var(--color--gray--darkest);
+	pointer-events: auto;
+	display: none;
+}
+body[data-phase="failure"] .reload-button,
+body[data-phase="success"] .reload-button {
+	display: block;
 }

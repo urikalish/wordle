@@ -3,6 +3,7 @@ import { config } from './config';
 export class UiHelper {
 	private onKeyboardButtonClick;
 	private onSubmitButtonClick;
+	private onReloadButtonClick;
 
 	setWidthAndHeight() {
 		const h = window.innerHeight;
@@ -46,6 +47,9 @@ export class UiHelper {
 		}
 		const submitButtonElm = document.getElementById('submit-button');
 		submitButtonElm?.addEventListener('click', this.onSubmitButtonClick);
+
+		const reloadButtonElm = document.getElementById('reload-button');
+		reloadButtonElm?.addEventListener('click', this.onReloadButtonClick);
 	}
 
 	markGamePhase(phase) {
@@ -82,11 +86,12 @@ export class UiHelper {
 		}
 	}
 
-	init(onKeyboardButtonClick, onSubmitButtonClick) {
+	init(onKeyboardButtonClick, onSubmitButtonClick, onReloadButtonClick) {
 		window.addEventListener('resize', this.setWidthAndHeight);
 		this.setWidthAndHeight();
 		this.onKeyboardButtonClick = onKeyboardButtonClick;
 		this.onSubmitButtonClick = onSubmitButtonClick;
+		this.onReloadButtonClick = onReloadButtonClick;
 		this.createUI();
 	}
 }
