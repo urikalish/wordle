@@ -125,7 +125,7 @@ body[data-phase="failure"] .keyboard-button {
 .keyboard-button.yellow,
 .keyboard-button.green {
 	border: none;
-	color: var(--color--gray--lightest);
+	color: #fff;
 }
 .grid-item.gray,
 .keyboard-button.gray {
