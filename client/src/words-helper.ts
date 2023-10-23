@@ -22,21 +22,21 @@ export class WordsHelper {
 		return this.allWords.indexOf(word.toLowerCase()) !== -1;
 	}
 
-	getColors(word, guess): string[] {
+	getColors(answer, guess): string[] {
 		const colors = new Array(guess.length).fill('');
-		for (let i = 0; i < word.length; i++) {
-			if (guess[i] === word[i]) {
+		for (let i = 0; i < answer.length; i++) {
+			if (guess[i] === answer[i]) {
 				colors[i] = 'green';
 			}
 		}
-		for (let w = 0; w < word.length; w++) {
-			if (colors[w] === 'green') {
+		for (let i = 0; i < answer.length; i++) {
+			if (colors[i] === 'green') {
 				continue;
 			}
 
-			for (let g = 0; g < guess.length; g++) {
-				if (guess[g] === word[w] && !colors[g]) {
-					colors[g] = 'yellow';
+			for (let j = 0; j < guess.length; j++) {
+				if (guess[j] === answer[i] && !colors[j]) {
+					colors[j] = 'yellow';
 					break;
 				}
 			}

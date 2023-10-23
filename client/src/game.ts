@@ -6,7 +6,7 @@ import { UiHelper } from './ui-helper';
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
 	private uiHelper: UiHelper = new UiHelper();
-	private word = '';
+	private answer = '';
 	private phase: Phase = Phase.GAME_INIT;
 	private guess = '';
 	private rowIndex = 0;
@@ -40,15 +40,12 @@ export class Game {
 
 	handleSubmitButtonClick() {
 		this.setPhase(Phase.MARK_GUESS);
-		const colors = this.wordsHelper.getColors(this.word, this.guess);
+		const colors = this.wordsHelper.getColors(this.answer, this.guess);
 		this.uiHelper.updateColors(this.rowIndex, this.guess, colors);
 		if (colors.every(c => c === 'green')) {
 			this.setPhase(Phase.SUCCESS);
 		} else if (this.rowIndex === config.NUMBER_OF_GUESSES - 1) {
 			this.setPhase(Phase.FAILURE);
-			setTimeout(() => {
-				alert(this.word);
-			}, 1000);
 		} else {
 			this.guess = '';
 			this.rowIndex++;
@@ -67,10 +64,10 @@ export class Game {
 		this.rowIndex = 0;
 		this.colIndex = 0;
 		this.wordsHelper.init();
-		this.word = this.wordsHelper.getRandomWord().toUpperCase();
-		this.uiHelper.init(this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this), this.handleReloadButtonClick.bind(this));
+		this.answer = this.wordsHelper.getRandomWord().toUpperCase();
+		this.uiHelper.init(this.answer, this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this), this.handleReloadButtonClick.bind(this));
 		this.uiHelper.markGamePhase(this.phase);
-		console.log(this.word);
+		console.log(this.answer);
 	}
 
 	start() {

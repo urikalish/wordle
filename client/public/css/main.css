@@ -44,7 +44,7 @@ main {
 	height: var(--main-height, 100vh);
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: auto auto auto 1fr;
+	grid-template-rows: auto auto auto auto 1fr;
 	user-select: none;
 }
 .header {
@@ -74,6 +74,17 @@ main {
 	font-size: calc(var(--grid-cell-size) / 1.5);
 	font-weight: 700;
 	color: var(--color--gray--darkest);
+}
+.answer {
+	display: none;
+	place-items: center;
+	font-size: calc(var(--grid-cell-size) / 1.5);
+	font-weight: 700;
+	color: var(--color--gray--darkest);
+	padding-top: calc(var(--grid-cell-size) / 2);
+}
+body[data-phase="failure"] .answer {
+	display: grid;
 }
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);

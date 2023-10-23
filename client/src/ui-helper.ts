@@ -13,7 +13,7 @@ export class UiHelper {
 		document.documentElement.style.setProperty('--keyboard-button-width', `${w / 11}px`);
 	}
 
-	createUI() {
+	createUI(answer) {
 		const mainGridElm = document.getElementById('grid');
 		for (let r = 0; r < config.NUMBER_OF_GUESSES; r++) {
 			for (let c = 0; c < config.WORD_LENGTH; c++) {
@@ -25,6 +25,12 @@ export class UiHelper {
 				mainGridElm?.appendChild(cellElm);
 			}
 		}
+
+		const answerElm = document.getElementById('answer');
+		if (answerElm) {
+			answerElm.textContent = answer;
+		}
+
 		const keys = [
 			['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 			['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -45,6 +51,7 @@ export class UiHelper {
 			}
 			keyboardElm?.appendChild(rowElm);
 		}
+
 		const submitButtonElm = document.getElementById('submit-button');
 		submitButtonElm?.addEventListener('click', this.onSubmitButtonClick);
 
@@ -86,12 +93,12 @@ export class UiHelper {
 		}
 	}
 
-	init(onKeyboardButtonClick, onSubmitButtonClick, onReloadButtonClick) {
+	init(answer, onKeyboardButtonClick, onSubmitButtonClick, onReloadButtonClick) {
 		window.addEventListener('resize', this.setWidthAndHeight);
 		this.setWidthAndHeight();
 		this.onKeyboardButtonClick = onKeyboardButtonClick;
 		this.onSubmitButtonClick = onSubmitButtonClick;
 		this.onReloadButtonClick = onReloadButtonClick;
-		this.createUI();
+		this.createUI(answer);
 	}
 }
