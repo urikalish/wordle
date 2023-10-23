@@ -30,7 +30,7 @@ body {
 	position: absolute;
 	inset: 0;
 	background-color: hsl(0, 100%, 80%);
-	animation: hue-rotate-animation 120s infinite;
+	animation: hue-rotate-animation 60s infinite;
 }
 .wrapper {
 	position: absolute;
