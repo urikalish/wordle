@@ -24,33 +24,28 @@ export class WordsHelper {
 
 	getColors(word, guess): string[] {
 		const colors = new Array(guess.length).fill('');
-
-for (let i = 0; i < word.length; i++) {
+		for (let i = 0; i < word.length; i++) {
 			if (guess[i] === word[i]) {
 				colors[i] = 'green';
 			}
 		}
+		for (let w = 0; w < word.length; w++) {
+			if (colors[w] === 'green') {
+				continue;
+			}
 
-for (let w = 0; w < word.length; w++) {
-
-	if (colors[w] === 'green') {
-continue;
-}
-
-for (let g = 0; g < guess.length; g++) {
+			for (let g = 0; g < guess.length; g++) {
 				if (guess[g] === word[w] && !colors[g]) {
 					colors[g] = 'yellow';
 					break;
 				}
 			}
 		}
-		
-for (let i = 0; i < colors.length; i++) {
+		for (let i = 0; i < colors.length; i++) {
 			if (!colors[i]) {
 				colors[i] = 'gray';
 			}
 		}
-
 		return colors;
 	}
 }
