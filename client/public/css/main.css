@@ -98,12 +98,19 @@ body[data-phase="failure"] .keyboard {
 }
 .keyboard-row {
 	display: flex;
+	position: relative;
+}
+.keyboard-row:nth-child(3) {
+	left: calc(var(--keyboard-button-width) / 2);
 }
 .keyboard-button {
 	width: var(--keyboard-button-width);
 	height: var(--keyboard-button-height);
 	margin: calc(var(--keyboard-button-width) / 20);
 	background-color: var(--color--gray--lightest);
+}
+.keyboard-button[data-key="<"] {
+	width: calc(var(--keyboard-button-width) * 2);
 }
 body[data-phase="success"] .keyboard-button,
 body[data-phase="failure"] .keyboard-button {
