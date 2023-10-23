@@ -17,18 +17,10 @@ export class Game {
 		this.uiHelper.markGamePhase(phase);
 	}
 
-	handleKeyboardButtonClick(event) {
-		const key = event.target.getAttribute('data-key');
-		if (key === '<') {
-			if (this.guess.length > 0) {
-				this.uiHelper.updateCellText(this.rowIndex, this.colIndex - 1, '');
-				this.guess = this.guess.substring(0, this.guess.length - 1);
-				this.colIndex--;
-			}
-			this.setPhase(Phase.USER_GUESS);
-		} else if (this.guess.length < config.WORD_LENGTH) {
-			this.uiHelper.updateCellText(this.rowIndex, this.colIndex, key);
-			this.guess += key;
+	handleLetter(letter) {
+		if (this.guess.length < config.WORD_LENGTH) {
+			this.uiHelper.updateCellText(this.rowIndex, this.colIndex, letter);
+			this.guess += letter;
 			this.colIndex++;
 			if (this.colIndex < config.WORD_LENGTH) {
 				this.setPhase(Phase.USER_GUESS);
@@ -38,7 +30,27 @@ export class Game {
 		}
 	}
 
-	handleSubmitButtonClick() {
+	handleBackspace() {
+		if (this.guess.length === 0) {
+			return;
+		}
+		this.uiHelper.updateCellText(this.rowIndex, this.colIndex - 1, '');
+		this.guess = this.guess.substring(0, this.guess.length - 1);
+		this.colIndex--;
+		this.setPhase(Phase.USER_GUESS);
+	}
+
+	handleDeleteLine() {
+		if (this.guess.length === 0) {
+			return;
+		}
+		this.uiHelper.clearLine(this.rowIndex);
+		this.guess = '';
+		this.colIndex = 0;
+		this.setPhase(Phase.USER_GUESS);
+	}
+
+	handleSubmit() {
 		this.setPhase(Phase.MARK_GUESS);
 		const colors = this.wordsHelper.getColors(this.answer, this.guess);
 		this.uiHelper.updateColors(this.rowIndex, this.guess, colors);
@@ -54,8 +66,26 @@ export class Game {
 		}
 	}
 
-	handleReloadButtonClick() {
+	handleReload() {
 		window.location.reload();
+	}
+
+	handleAction(action: string) {
+		const upperCaseAction = action.toUpperCase();
+		if (upperCaseAction === 'SUBMIT' || (upperCaseAction === 'ENTER' && this.phase === Phase.WAIT_SUBMIT)) {
+			this.handleSubmit();
+		} else if (upperCaseAction === 'RELOAD' || (upperCaseAction === 'ENTER' && [Phase.SUCCESS, Phase.FAILURE].includes(this.phase))) {
+			this.handleReload();
+		} else if (['BACKSPACE', '<'].includes(upperCaseAction)) {
+			this.handleBackspace();
+		} else if (upperCaseAction === 'ESCAPE') {
+			this.handleDeleteLine();
+		} else if (upperCaseAction.length === 1) {
+			const charCode = upperCaseAction.charCodeAt(0);
+			if (charCode >= 65 && charCode <= 90) {
+				this.handleLetter(upperCaseAction);
+			}
+		}
 	}
 
 	init() {
@@ -65,7 +95,7 @@ export class Game {
 		this.colIndex = 0;
 		this.wordsHelper.init();
 		this.answer = this.wordsHelper.getRandomWord().toUpperCase();
-		this.uiHelper.init(this.answer, this.handleKeyboardButtonClick.bind(this), this.handleSubmitButtonClick.bind(this), this.handleReloadButtonClick.bind(this));
+		this.uiHelper.init(this.answer, this.handleAction.bind(this));
 		this.uiHelper.markGamePhase(this.phase);
 		console.log(this.answer);
 	}

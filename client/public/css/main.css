@@ -109,7 +109,7 @@ body[data-phase="failure"] .keyboard {
 	margin: calc(var(--keyboard-button-width) / 20);
 	background-color: var(--color--gray--lightest);
 }
-.keyboard-button[data-key="<"] {
+.keyboard-button[data-action="<"] {
 	width: calc(var(--keyboard-button-width) * 2);
 }
 body[data-phase="success"] .keyboard-button,

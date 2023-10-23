@@ -1,9 +1,7 @@
 import { config } from './config';
 
 export class UiHelper {
-	private onKeyboardButtonClick;
-	private onSubmitButtonClick;
-	private onReloadButtonClick;
+	private onHandleAction;
 
 	setWidthAndHeight() {
 		const h = window.innerHeight;
@@ -43,20 +41,31 @@ export class UiHelper {
 			for (let k = 0; k < keys[r].length; k++) {
 				const keyElm = document.createElement('button');
 				keyElm.setAttribute('id', `key-${keys[r][k]}`);
-				keyElm.setAttribute('data-key', keys[r][k]);
+				keyElm.setAttribute('data-action', keys[r][k]);
+				keyElm.setAttribute('tabindex', '-1');
 				keyElm.classList.add('keyboard-button');
 				keyElm.textContent = keys[r][k];
-				keyElm.addEventListener('click', this.onKeyboardButtonClick);
+				keyElm.addEventListener('click', (event: MouseEvent) => {
+					this.onHandleAction((event.target as HTMLElement).getAttribute('data-action'));
+				});
 				rowElm.appendChild(keyElm);
 			}
 			keyboardElm?.appendChild(rowElm);
 		}
 
 		const submitButtonElm = document.getElementById('submit-button');
-		submitButtonElm?.addEventListener('click', this.onSubmitButtonClick);
+		submitButtonElm?.addEventListener('click', (event: MouseEvent) => {
+			this.onHandleAction((event.target as HTMLElement).getAttribute('data-action'));
+		});
 
 		const reloadButtonElm = document.getElementById('reload-button');
-		reloadButtonElm?.addEventListener('click', this.onReloadButtonClick);
+		reloadButtonElm?.addEventListener('click', (event: MouseEvent) => {
+			this.onHandleAction((event.target as HTMLElement).getAttribute('data-action'));
+		});
+
+		document.body.addEventListener('keydown', (event: KeyboardEvent) => {
+			this.onHandleAction(event.key);
+		});
 	}
 
 	markGamePhase(phase) {
@@ -67,6 +76,12 @@ export class UiHelper {
 		const cellElm = document.getElementById(`cell-${row}${col}`);
 		if (cellElm) {
 			cellElm.textContent = text;
+		}
+	}
+
+	clearLine(row) {
+		for (let c = 0; c < config.WORD_LENGTH; c++) {
+			this.updateCellText(row, c, '');
 		}
 	}
 
@@ -93,12 +108,10 @@ export class UiHelper {
 		}
 	}
 
-	init(answer, onKeyboardButtonClick, onSubmitButtonClick, onReloadButtonClick) {
+	init(answer, onHandleAction) {
 		window.addEventListener('resize', this.setWidthAndHeight);
 		this.setWidthAndHeight();
-		this.onKeyboardButtonClick = onKeyboardButtonClick;
-		this.onSubmitButtonClick = onSubmitButtonClick;
-		this.onReloadButtonClick = onReloadButtonClick;
+		this.onHandleAction = onHandleAction;
 		this.createUI(answer);
 	}
 }
