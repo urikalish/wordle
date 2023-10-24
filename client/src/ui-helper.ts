@@ -42,11 +42,10 @@ export class UiHelper {
 			const rowElm = document.createElement('div');
 			rowElm.classList.add('keyboard-row');
 			for (let k = 0; k < keys[r].length; k++) {
-				const keyElm = document.createElement('button');
+				const keyElm = document.createElement('div');
 				keyElm.setAttribute('id', `key-${keys[r][k]}`);
 				keyElm.setAttribute('data-action', keys[r][k]);
-				keyElm.setAttribute('tabindex', '-1');
-				keyElm.classList.add('keyboard-button');
+				keyElm.classList.add('keyboard-button', 'button');
 				keyElm.textContent = keys[r][k];
 				keyElm.addEventListener('click', (event: MouseEvent) => {
 					this.onHandleAction((event.target as HTMLElement).getAttribute('data-action'));
@@ -120,6 +119,7 @@ export class UiHelper {
 		for (let i = 0; i < colors.length; i++) {
 			const cellElm = document.getElementById(`cell-${row}${i}`);
 			if (cellElm && colors[i]) {
+				cellElm.style.transition = `all 100ms linear ${50 * i}ms`;
 				cellElm.classList.add(colors[i]);
 			}
 			const keyElm = document.getElementById(`key-${guess[i]}`);

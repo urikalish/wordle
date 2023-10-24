@@ -87,9 +87,11 @@ main {
 	font-weight: 700;
 	color: var(--color--gray--darkest);
 	padding-top: calc(var(--grid-cell-size) / 2);
+	opacity: 0;
 }
 body[data-phase="failure"] .answer {
 	display: grid;
+	animation: fade-in-animation 1s ease-in 1s forwards;
 }
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);
@@ -109,6 +111,8 @@ body[data-phase="failure"] .keyboard {
 	left: calc(var(--keyboard-button-width) / 2);
 }
 .keyboard-button {
+	display: grid;
+	place-items: center;
 	width: var(--keyboard-button-width);
 	height: var(--keyboard-button-height);
 	margin: calc(var(--keyboard-button-width) / 20);
