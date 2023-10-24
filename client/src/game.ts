@@ -15,6 +15,10 @@ export class Game {
 	setPhase(phase: Phase) {
 		this.phase = phase;
 		this.uiHelper.markGamePhase(phase);
+		this.uiHelper.disallowAllCellClicks();
+		if ([Phase.USER_GUESS, Phase.WAIT_SUBMIT].includes(this.phase) && this.guess !== '') {
+			this.uiHelper.allowCellClicks(this.rowIndex, this.guess.length - 1);
+		}
 	}
 
 	handleLetter(letter) {
@@ -50,6 +54,15 @@ export class Game {
 		this.setPhase(Phase.USER_GUESS);
 	}
 
+	handleClickCell(row, col) {
+		if (row !== this.rowIndex || col > this.colIndex) {
+			return;
+		}
+		this.uiHelper.clearLineEnd(row, col);
+		this.guess = this.guess.substring(0, col);
+		this.colIndex = col;
+	}
+
 	handleSubmit() {
 		this.setPhase(Phase.MARK_GUESS);
 		const colors = this.wordsHelper.getColors(this.answer, this.guess);
@@ -72,19 +85,21 @@ export class Game {
 
 	handleAction(action: string) {
 		const upperCaseAction = action.toUpperCase();
-		if (upperCaseAction === 'SUBMIT' || (upperCaseAction === 'ENTER' && this.phase === Phase.WAIT_SUBMIT)) {
-			this.handleSubmit();
-		} else if (upperCaseAction === 'RELOAD' || (upperCaseAction === 'ENTER' && [Phase.SUCCESS, Phase.FAILURE].includes(this.phase))) {
-			this.handleReload();
-		} else if (['BACKSPACE', '<'].includes(upperCaseAction)) {
-			this.handleBackspace();
-		} else if (upperCaseAction === 'ESCAPE') {
-			this.handleDeleteLine();
-		} else if (upperCaseAction.length === 1) {
+		if (upperCaseAction.length === 1 && upperCaseAction !== '<') {
 			const charCode = upperCaseAction.charCodeAt(0);
 			if (charCode >= 65 && charCode <= 90) {
 				this.handleLetter(upperCaseAction);
 			}
+		} else if (['BACKSPACE', '<'].includes(upperCaseAction)) {
+			this.handleBackspace();
+		} else if (upperCaseAction === 'ESCAPE') {
+			this.handleDeleteLine();
+		} else if (upperCaseAction.startsWith('CELL-')) {
+			this.handleClickCell(parseInt(upperCaseAction.charAt(5)), parseInt(upperCaseAction.charAt(6)));
+		} else if (upperCaseAction === 'SUBMIT' || (upperCaseAction === 'ENTER' && this.phase === Phase.WAIT_SUBMIT)) {
+			this.handleSubmit();
+		} else if (upperCaseAction === 'RELOAD' || (upperCaseAction === 'ENTER' && [Phase.SUCCESS, Phase.FAILURE].includes(this.phase))) {
+			this.handleReload();
 		}
 	}
 

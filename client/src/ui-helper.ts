@@ -20,6 +20,9 @@ export class UiHelper {
 				cellElm.setAttribute('data-row', r.toString());
 				cellElm.setAttribute('data-col', c.toString());
 				cellElm.classList.add('grid-item');
+				cellElm.addEventListener('click', (event: MouseEvent) => {
+					this.onHandleAction((event.target as HTMLElement).getAttribute('id'));
+				});
 				mainGridElm?.appendChild(cellElm);
 			}
 		}
@@ -82,6 +85,34 @@ export class UiHelper {
 	clearLine(row) {
 		for (let c = 0; c < config.WORD_LENGTH; c++) {
 			this.updateCellText(row, c, '');
+		}
+	}
+
+	clearLineEnd(row, col) {
+		for (let c = col; c < config.WORD_LENGTH; c++) {
+			this.updateCellText(row, c, '');
+		}
+	}
+
+	updateCellClass(row, col, className, enable) {
+		const cellElm = document.getElementById(`cell-${row}${col}`);
+		if (cellElm) {
+			cellElm.classList.toggle(className, enable);
+		}
+	}
+
+	disallowAllCellClicks() {
+		for (let r = 0; r < config.NUMBER_OF_GUESSES; r++) {
+			for (let c = 0; c < config.WORD_LENGTH; c++) {
+				this.updateCellClass(r, c, 'allow-click', false);
+			}
+		}
+	}
+
+	allowCellClicks(row, col) {
+		this.disallowAllCellClicks();
+		for (let c = 0; c <= col; c++) {
+			this.updateCellClass(row, c, 'allow-click', true);
 		}
 	}
 
