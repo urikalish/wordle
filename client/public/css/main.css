@@ -95,9 +95,9 @@ body[data-phase="failure"] .answer {
 }
 .keyboard {
 	margin-top: calc(var(--keyboard-button-height) / 4);
-	display: grid;
 	justify-items: center;
 	align-content: start;
+	display: grid;
 }
 body[data-phase="success"] .keyboard,
 body[data-phase="failure"] .keyboard {
