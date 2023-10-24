@@ -8,10 +8,12 @@ export class WordsHelper {
 	init() {
 		this.allWords = allWords;
 		this.words = allWords.filter(w => w.length === config.WORD_LENGTH);
-		this.words.length = config.USE_MOST_FREQUENT_WORDS;
 		this.words.forEach((w, ind) => {
-			console.log(`${ind + 1} ${w}`);
+			if (ind < 1500) {
+				console.log(`${ind + 1} ${w}`);
+			}
 		});
+		this.words.length = config.USE_MOST_FREQUENT_WORDS;
 	}
 
 	getRandomWord(): string {
