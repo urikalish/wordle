@@ -80,15 +80,6 @@ main {
 	pointer-events: auto;
 	cursor: pointer;
 }
-.answer {
-	display: none;
-	place-items: center;
-	font-size: calc(var(--grid-cell-size) / 1.5);
-	font-weight: 700;
-	color: var(--color--gray--darkest);
-	padding-top: calc(var(--grid-cell-size) / 2);
-	opacity: 0;
-}
 body[data-phase="failure"] .answer {
 	display: grid;
 	animation: fade-in-animation 1s ease-in 1s forwards;
@@ -155,7 +146,7 @@ body[data-phase="failure"] .keyboard-button {
 }
 .submit-button,
 .reload-button {
-	margin-top: calc(var(--keyboard-button-height) / 2);
+	margin-top: calc(var(--grid-cell-size) / 2);
 	padding: 1rem 2rem;
 }
 .submit-button {
@@ -181,4 +172,13 @@ body[data-phase="success"] .submit-button {
 body[data-phase="failure"] .reload-button,
 body[data-phase="success"] .reload-button {
 	display: block;
+}
+.answer {
+	display: none;
+	place-items: center;
+	font-size: calc(var(--grid-cell-size) / 1.5);
+	font-weight: 700;
+	color: var(--color--gray--darkest);
+	padding-top: calc(var(--grid-cell-size) / 2);
+	opacity: 0;
 }

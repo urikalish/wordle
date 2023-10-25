@@ -1,27 +1,22 @@
-import { allWords } from './all-words';
+import { validWords } from './data/valid-words';
 import { config } from './config';
 
 export class WordsHelper {
-	private allWords: string[] = [];
-	private words: string[] = [];
+	private validWords: string[] = [];
+	private topWords: string[] = [];
 
 	init() {
-		this.allWords = allWords;
-		this.words = allWords.filter(w => w.length === config.WORD_LENGTH);
-		this.words.forEach((w, ind) => {
-			if (ind < 1500) {
-				console.log(`${ind + 1} ${w}`);
-			}
-		});
-		this.words.length = config.USE_MOST_FREQUENT_WORDS;
+		this.validWords = validWords;
+		this.topWords = [...validWords];
+		this.topWords.length = config.USE_TOP_WORDS;
 	}
 
 	getRandomWord(): string {
-		return this.words[Math.trunc(Math.random() * this.words.length)];
+		return this.topWords[Math.trunc(Math.random() * this.topWords.length)];
 	}
 
 	doesWordExist(word: string): boolean {
-		return this.allWords.indexOf(word.toLowerCase()) !== -1;
+		return this.validWords.indexOf(word.toLowerCase()) !== -1;
 	}
 
 	getColors(answer, guess): string[] {
