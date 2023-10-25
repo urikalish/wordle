@@ -1,4 +1,4 @@
-import { validWords } from './data/valid-words';
+import { words } from './data/words';
 import { config } from './config';
 
 export class WordsHelper {
@@ -6,8 +6,8 @@ export class WordsHelper {
 	private topWords: string[] = [];
 
 	init() {
-		this.validWords = validWords;
-		this.topWords = [...validWords];
+		this.validWords = words;
+		this.topWords = [...words];
 		this.topWords.length = config.USE_TOP_WORDS;
 	}
 
