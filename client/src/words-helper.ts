@@ -7,6 +7,11 @@ export class WordsHelper {
 
 	init() {
 		this.validWords = words;
+		// let msg = '';
+		// words.forEach(w => {
+		// 	msg += w + ' ';
+		// });
+		// console.log(msg);
 		this.topWords = [...words];
 		this.topWords.length = config.USE_TOP_WORDS;
 	}
