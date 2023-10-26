@@ -1,4 +1,4 @@
-import { validWords } from './data/valid-words';
+import { words } from './words';
 import { config } from './config';
 
 export class WordsHelper {
@@ -6,13 +6,13 @@ export class WordsHelper {
 	private topWords: string[] = [];
 
 	init() {
-		this.validWords = validWords;
+		this.validWords = words;
 		// let msg = '';
 		// words.forEach(w => {
 		// 	msg += w + ' ';
 		// });
 		// console.log(msg);
-		this.topWords = [...validWords];
+		this.topWords = [...this.validWords];
 		this.topWords.length = config.USE_TOP_WORDS;
 	}
 
