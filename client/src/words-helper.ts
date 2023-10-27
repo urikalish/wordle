@@ -7,14 +7,24 @@ export class WordsHelper {
 
 	init() {
 		this.validWords = words;
-		// let msg = '';
-		// words.forEach(w => {
-		// 	msg += w + ' ';
-		// });
-		// console.log(msg);
 		this.topWords = [...this.validWords];
 		this.topWords.length = config.USE_TOP_WORDS;
 	}
+
+	// async checkWord(word) {
+	// 	const dictionaryApi = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
+	// 	try {
+	// 		const res = await fetch(dictionaryApi + word);
+	// 		const json = await res.json();
+	// 		if (!json[0]) {
+	// 			console.log('### missing - ' + word);
+	// 		} else if (json[0].meanings.length === 1 && json[0].meanings[0].partOfSpeech === 'noun') {
+	// 			console.log('### noun - ' + word);
+	// 		}
+	// 	} catch (err) {
+	// 		console.log('### ' + err);
+	// 	}
+	// }
 
 	getRandomWord(): string {
 		return this.topWords[Math.trunc(Math.random() * this.topWords.length)];
