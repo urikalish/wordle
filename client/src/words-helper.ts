@@ -1,14 +1,10 @@
 import { words } from './words';
-import { config } from './config';
 
 export class WordsHelper {
-	private validWords: string[] = [];
-	private topWords: string[] = [];
+	private words: string[] = [];
 
 	init() {
-		this.validWords = words;
-		this.topWords = [...this.validWords];
-		this.topWords.length = config.USE_TOP_WORDS;
+		this.words = [...words];
 	}
 
 	// async checkWord(word) {
@@ -27,11 +23,11 @@ export class WordsHelper {
 	// }
 
 	getRandomWord(): string {
-		return this.topWords[Math.trunc(Math.random() * this.topWords.length)];
+		return this.words[Math.trunc(Math.random() * this.words.length)];
 	}
 
-	doesWordExist(word: string): boolean {
-		return this.validWords.indexOf(word.toLowerCase()) !== -1;
+	isValidWord(word: string): boolean {
+		return this.words.indexOf(word.toLowerCase()) !== -1;
 	}
 
 	getColors(answer, guess): string[] {

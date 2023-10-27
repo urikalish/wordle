@@ -29,7 +29,7 @@ export class Game {
 			if (this.colIndex < config.WORD_LENGTH) {
 				this.setPhase(Phase.USER_GUESS);
 			} else {
-				this.setPhase(this.wordsHelper.doesWordExist(this.guess) ? Phase.WAIT_SUBMIT : Phase.USER_GUESS);
+				this.setPhase(this.wordsHelper.isValidWord(this.guess) ? Phase.WAIT_SUBMIT : Phase.USER_GUESS);
 			}
 		}
 	}
