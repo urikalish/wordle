@@ -1,7 +1,8 @@
-import { config } from './config';
-import { Phase } from './phase';
-import { WordsHelper } from './words-helper';
-import { UiHelper } from './ui-helper';
+import {config} from './config';
+import {Phase} from './phase';
+import {WordsHelper} from './words-helper';
+import {UiHelper} from './ui-helper';
+import {Analytics, AnalyticsAction, AnalyticsCategory} from "./analytics";
 
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
@@ -18,6 +19,13 @@ export class Game {
 		this.uiHelper.disallowAllCellClicks();
 		if ([Phase.USER_GUESS, Phase.WAIT_SUBMIT].includes(this.phase) && this.guess !== '') {
 			this.uiHelper.allowCellClicks(this.rowIndex, this.guess.length - 1);
+		}
+		if (phase === Phase.GAME_INIT) {
+			Analytics.sendEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
+		} else if (phase === Phase.SUCCESS) {
+			Analytics.sendEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_SUCCESS, this.answer);
+		} else if (phase === Phase.FAILURE) {
+			Analytics.sendEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_FAILURE, this.answer);
 		}
 	}
 

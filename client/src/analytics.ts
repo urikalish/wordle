@@ -3,7 +3,8 @@ export enum AnalyticsCategory {
 }
 export enum AnalyticsAction {
 	GAME_PHASE_GAME_STARTED = 'game-phase--game-started',
-	GAME_PHASE_GAME_ENDED = 'game-phase--game-ended',
+	GAME_PHASE_GAME_SUCCESS = 'game-phase--game-success',
+	GAME_PHASE_GAME_FAILURE = 'game-phase--game-failure',
 }
 
 export class Analytics {
