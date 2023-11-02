@@ -1,8 +1,8 @@
-import {config} from './config';
-import {Phase} from './phase';
-import {WordsHelper} from './words-helper';
-import {UiHelper} from './ui-helper';
-import {Analytics, AnalyticsAction, AnalyticsCategory} from "./analytics";
+import { config } from './config';
+import { Phase } from './phase';
+import { WordsHelper } from './words-helper';
+import { UiHelper } from './ui-helper';
+import { Analytics, AnalyticsAction, AnalyticsCategory } from './analytics';
 
 export class Game {
 	private wordsHelper: WordsHelper = new WordsHelper();
