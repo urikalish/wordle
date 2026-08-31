@@ -98,9 +98,6 @@ body[data-phase="failure"] .keyboard {
 	display: flex;
 	position: relative;
 }
-.keyboard-row:nth-child(3) {
-	left: calc(var(--keyboard-button-width) / 2);
-}
 .keyboard-button {
 	display: grid;
 	place-items: center;
