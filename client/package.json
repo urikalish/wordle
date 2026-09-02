@@ -18,7 +18,7 @@
     "bundle": "yarn bundle-prod && yarn bundle-dev",
     "build": "yarn clean && yarn compile && yarn bundle",
     "full": "yarn format && yarn lint && yarn build",
-    "serve": "http-server ./public --port 5543 --cors -c-1",
+    "dev": "http-server ./public --port 5543 --cors -c-1",
     "post-checkout": "yarn && yarn build",
     "post-merge": "yarn && yarn build",
     "pre-commit": "yarn full"
