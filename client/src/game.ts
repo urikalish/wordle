@@ -95,7 +95,7 @@ export class Game {
 		const upperCaseAction = action.toUpperCase();
 		if (upperCaseAction.length === 1 && upperCaseAction !== '<') {
 			const charCode = upperCaseAction.charCodeAt(0);
-			if (charCode >= 65 && charCode <= 90) {
+			if ((charCode >= 65 && charCode <= 90) || charCode === 95) {
 				this.handleLetter(upperCaseAction);
 			}
 		} else if (['BACKSPACE', '<'].includes(upperCaseAction)) {
