@@ -736,6 +736,7 @@ export const words = [
 	'pecan',
 	'pedal',
 	'penal',
+	'penis',
 	'peril',
 	'phase',
 	'phone',
